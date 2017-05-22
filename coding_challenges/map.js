@@ -1,0 +1,1 @@
+Array.prootype.map = function(){};
