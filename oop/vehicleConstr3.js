@@ -8,11 +8,6 @@ function VehicleConstructor(name, wheels, passengers, speed){
 	this.speed = speed;
 	this.distance_travelled = 0;
 	this.vin = createVin();
-	
-	this.makeNoise = function() {
-		console.log('I make noise');
-		return this;
-	};
 
 	function createVin(){
 		var vin = '';
@@ -22,6 +17,11 @@ function VehicleConstructor(name, wheels, passengers, speed){
 		return vin;
 	}
 }
+
+VehicleConstructor.prototype.makeNoise = function() {
+		console.log('I make noise');
+		return this;
+};
 
 VehicleConstructor.prototype.updateDistanceTravelled= function(){
 	this.distance_travelled += this.speed;
@@ -58,3 +58,4 @@ bus.addPassenger = function(count) {
 	return this;
 };
 bus.addPassenger(5);
+console.log(bus);
