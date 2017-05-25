@@ -1,0 +1,41 @@
+*{
+	/*outline: thin dotted red;*/
+}
+
+#wrapper{
+	width: 750px;
+    display: inline-block;
+}
+
+label{
+    display:inline-block;
+    width:150px;
+   	text-align: left;
+}
+
+form{
+	width: 350px;
+	height: 200px;
+	border: thin solid black;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+input{
+	width: 150px;
+}
+
+select{
+	width: 150px;
+}
+
+#submitbut{
+	background-color: gray;
+	border: thin solid black;
+	background-color: blue;
+	color: white;
+	float: right;
+	width: 75px;
+}

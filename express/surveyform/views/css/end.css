@@ -1,0 +1,65 @@
+*{
+	/*outline: thin dotted red;*/
+}
+
+#wrapper{
+	width: 750px;
+    display: block;
+}
+
+#headerDiv{
+	text-decoration: underline;
+	display: block;
+	width: 400px;
+	height: 40px;
+	margin-left: auto;
+	margin-right: auto;
+	border-top: thin solid black;
+	border-left: thin solid black;
+	border-right: thin solid black;
+}
+
+h3{
+	padding-left: 15px;
+}
+
+#infoDiv{
+	display: block;
+	border-left: thin solid black;
+	border-right: thin solid black;
+	width: 400px;
+	height: 250px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#buttonDiv{
+	display: block;
+	width: 400px;
+	height: 40px;
+	margin-left: auto;
+	margin-right: auto;
+	border-bottom: thin solid black;
+	border-left: thin solid black;
+	border-right: thin solid black;
+}
+
+table{
+	width: 350px;
+	height: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+button{
+	border: thin solid black;
+	width: 75px;
+	background-color: blue;
+	color: white;
+	float: right;
+	margin-right: 10px;
+	margin-top: auto;
+	margin-bottom: auto;
+}
