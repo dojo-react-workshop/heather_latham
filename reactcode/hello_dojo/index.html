@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello Dojo</title>
+    <script src="node_modules/react/dist/react.js"></script>
+    <script src="node_modules/react-dom/dist/react-dom.js"></script>
+  </head>
+  <body>
+        <div id="react">
+        </div>
+        <script>
+            'use strict'
+            
+            var container = document.getElementById('react');
+
+            const ListComponent = (props) => {
+
+              const style = {style: {backgroundColor: 'blue'}};
+              
+              const {todos} = props;
+              const listItems = todos.map((text, idx) => {
+                return React.createElement('li', { key: idx} , text);
+              })
+
+              return React.createElement('ul', style, listItems);
+            }
+
+            ReactDOM.render(
+                React.createElement(
+                  'div', null ,
+                    React.createElement('h1', null, 'Hello Dojo!'),
+                    React.createElement('h3', null, 'Things I need to do:'),
+                    React.createElement(ListComponent, 
+                      {
+                        todos: ['Learn React', 'Climb Mt. Everest', 'Run a marathon', 'Feed the dogs']
+                      })
+                ), 
+                container
+            );
+
+        </script>
+  </body>
+</html>

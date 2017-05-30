@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>React Demo</title>
+    <script src="node_modules/react/dist/react.js"></script>
+    <script src="node_modules/react-dom/dist/react-dom.js"></script>
+  </head>
+  <body>
+        <div id="root">
+        </div>
+        <script>
+            var h1 = React.createElement('h1', null, "Hello Northwestern Mutual");
+            var container = document.getElementById('root');
+            ReactDOM.render(h1, container);
+        </script>
+  </body>
+</html>

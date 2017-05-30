@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Composable Squares</title>
+    <script src="node_modules/react/dist/react.js"></script>
+    <script src="node_modules/react-dom/dist/react-dom.js"></script>
+  </head>
+  <body>
+        <div id="react">
+        </div>
+
+        <script>
+            'use strict'
+            
+            var container = document.getElementById('react');
+
+            const SquareComponent1 = (props) => {
+
+              const {text} = props;
+              const style = {style: {backgroundColor: 'blue', color: 'white', display: 'inline-block', width: '150px', height: '150px'}};
+
+              return React.createElement('div', style, text);
+            }
+
+            const SquareComponent2 = (props) => {
+
+              const {text} = props;
+              const style = {style: {backgroundColor: 'red', color: 'blue', display: 'inline-block', width: '150px', height: '150px'}};
+
+              return React.createElement('div', style, text);
+            }
+
+            const SquareComponent3 = (props) => {
+
+              const {text} = props;
+              const style = {style: {backgroundColor: 'pink', color: 'green', display: 'inline-block', width: '150px', height: '150px'}};
+
+              return React.createElement('div', style, text);
+            };
+
+
+            ReactDOM.render(
+                React.createElement(
+                  'div', { style: { display: 'inline-block'} } ,
+                    React.createElement(SquareComponent1, { text: 'white on blue' }),
+                    React.createElement(SquareComponent2, { text: 'blue on red' }),
+                    React.createElement(SquareComponent3, { text: 'green on pink' })
+                  ),
+                container
+            );
+
+        </script>
+  </body>
+</html>
