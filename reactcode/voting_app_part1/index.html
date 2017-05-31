@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Voting App</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="node_modules/react/dist/react.js"></script>
+        <script src="node_modules/react-dom/dist/react-dom.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+    </head>
+    <body>
+        <div id="app"></div>
+
+        <script type="text/babel">
+            'use strict';
+
+            const rectangles = [
+                {
+                    text: 'React',
+                    count: 0
+                },
+                {
+                    text: 'Vue',
+                    count: 0
+                },
+                {
+                    text: 'Angular',
+                    count: 0
+                },
+                {
+                    text: 'Ember',
+                    count: 0
+                }
+            ]
+
+            const Container = (props) => {
+
+                const style = {
+                    textAlign: 'center'
+                }
+
+                const rectangles = props.rectangles.map((recObj, idx) => {
+                    return <Rectangle key={idx} tableInfo={recObj}/>
+                })
+                return (
+                    <div>
+                        <h1 style={style}>Vote Your JS Library!</h1>
+                        {rectangles}
+                    </div>
+                )
+                
+            }
+
+            const Rectangle = (props) => {
+                
+                const { tableInfo } = props;
+
+                const styleForm = {
+                    height: '50px',
+                    width: '275px',
+                    display: 'block',
+                    border: 'thin solid black',
+                    marginLeft: 'auto',
+                    marginRight: 'auto'
+                };
+
+                const styleTable = {
+                    height: '50px',
+                    width: '275px',
+                    fontSize: '25px'
+                }
+
+                const styleTd = {
+                    width: '80px',
+                    height: '45px',
+                    verticalAlign: 'middle',
+                    textAlign: 'center'
+                }
+
+                const styleCounter = {
+                    textAlign: 'center',
+                    border: '2px solid black',
+                    borderRadius: '50px',
+                    width: '40px',
+                    height: '40px',
+                    fontSize: '20px'
+                };
+
+                const styleButton = {
+                    border: 'none', 
+                    backgroundColor: 'white'
+                }
+
+                const stylePic = {
+                    width: '35px',
+                    height: '35px'
+                }
+
+                const text = tableInfo.text;
+                const counter = tableInfo.count;
+
+                return (
+                    <form style={styleForm}>
+                        <table style={styleTable}>
+                            <td style={styleTd}><input id="counter" style={styleCounter} type="text" name="counter" value={counter}/></td>
+                            <td style={styleTd}><label id="reclabel">{text}</label></td>
+                            <td style={styleTd}><button id="incbut" style={styleButton} type="submit" value="Submit"><img style={stylePic} src="plus.png"/></button></td>
+                        </table>
+                    </form>
+                )
+            }
+
+            ReactDOM.render(
+                <Container rectangles={rectangles}/>,
+                document.getElementById('app')
+            )
+
+        </script>
+
+    
+    </body>
+</html>

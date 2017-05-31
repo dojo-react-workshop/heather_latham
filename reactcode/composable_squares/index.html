@@ -1,55 +1,67 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Composable Squares</title>
-    <script src="node_modules/react/dist/react.js"></script>
-    <script src="node_modules/react-dom/dist/react-dom.js"></script>
-  </head>
-  <body>
-        <div id="react">
-        </div>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="node_modules/react/dist/react.js"></script>
+        <script src="node_modules/react-dom/dist/react-dom.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+    </head>
+    <body>
+        <div id="react"></div>
+        <script type="text/babel">
+            'use strict';
 
-        <script>
-            'use strict'
-            
-            var container = document.getElementById('react');
+            const squares = [
+                {
+                    background: 'blue',
+                    text: 'white'
+                },
+                {
+                    background: 'aquamarine',
+                    text: 'brown'
+                },
+                {
+                    background: 'purple',
+                    text: 'lightblue'
+                }
+            ]
 
-            const SquareComponent1 = (props) => {
-
-              const {text} = props;
-              const style = {style: {backgroundColor: 'blue', color: 'white', display: 'inline-block', width: '150px', height: '150px'}};
-
-              return React.createElement('div', style, text);
+            const Container = (props) => {
+                const squares = props.squares.map((squareObj, idx) => {
+                    return <Square key={idx} colorData={squareObj}/>
+                })
+                return (
+                    <div>
+                        <h1>Take a look at my squares!</h1>
+                        {squares}
+                    </div>
+                )
+                
             }
 
-            const SquareComponent2 = (props) => {
-
-              const {text} = props;
-              const style = {style: {backgroundColor: 'red', color: 'blue', display: 'inline-block', width: '150px', height: '150px'}};
-
-              return React.createElement('div', style, text);
+            const Square = (props) => {
+                const { colorData } = props;
+                const style = {
+                    height: '275px',
+                    width: '275px',
+                    display: 'inline-block',
+                    fontSize: '20px',
+                    color: colorData.text,
+                    backgroundColor: colorData.background
+                };
+                 const text = `${style.color} on ${style.backgroundColor}`;
+                return <div style={style}>{text}</div>
             }
-
-            const SquareComponent3 = (props) => {
-
-              const {text} = props;
-              const style = {style: {backgroundColor: 'pink', color: 'green', display: 'inline-block', width: '150px', height: '150px'}};
-
-              return React.createElement('div', style, text);
-            };
-
 
             ReactDOM.render(
-                React.createElement(
-                  'div', { style: { display: 'inline-block'} } ,
-                    React.createElement(SquareComponent1, { text: 'white on blue' }),
-                    React.createElement(SquareComponent2, { text: 'blue on red' }),
-                    React.createElement(SquareComponent3, { text: 'green on pink' })
-                  ),
-                container
-            );
-
+                <Container squares={squares}/>,
+                document.getElementById('react')
+            )
+            
         </script>
-  </body>
+
+    
+    </body>
 </html>
