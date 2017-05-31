@@ -53,7 +53,7 @@
             }
 
             const Rectangle = (props) => {
-
+                
                 const { tableInfo } = props;
 
                 const styleForm = {
@@ -99,10 +99,6 @@
 
                 const text = tableInfo.text;
                 const counter = tableInfo.count;
-                
-                const handleClick = () => {
-                    alert('You clicked me');
-                }
 
                 //going forward, only use a table for table data, not to style//
 
@@ -111,7 +107,7 @@
                         <table style={styleTable}>
                             <td style={styleTd}><input id="counter" style={styleCounter} type="text" name="counter" value={counter}/></td>
                             <td style={styleTd}><label id="reclabel">{text}</label></td>
-                            <td style={styleTd}><button id="incbut" style={styleButton} type="submit" value="Submit" onClick={handleClick}><img style={stylePic} src="plus.png"/></button></td>
+                            <td style={styleTd}><button id="incbut" style={styleButton} type="submit" value="Submit"><img style={stylePic} src="plus.png"/></button></td>
                         </table>
                     </form>
                 )
