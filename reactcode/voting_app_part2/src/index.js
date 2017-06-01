@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import img from './plus.png'
+import img from './plus.png';
+
 const App = () => {
 	
 	const styleH = {
@@ -127,7 +128,7 @@ const Rectangle = (props) => {
     	<div style={styleDiv}>
 	        <p style={styleCounter}>{counter}</p>
 	        <p style={styleText}>{text}</p>
-	        <img style={stylePic} onClick={click} src={img}/>
+	        <img style={stylePic} onClick={click} src={img} alt="pluspic"/>
 	    </div>
 	)
 }
