@@ -17,66 +17,43 @@ class App extends React.Component {
 	 startGameClick = () => {
 
  		this.setState({
+ 			memoryArr: ['','','','','','','','','','','',''],
+	      	guessArr: ['','','','','','','','','','','',''],
+	      	counter: 3,
  			board: 2
  		})
 
- 		this.boardPromise = new Promise((resolve, reject) => {
-		    this.interval = setInterval(this.myTimer
-		    	, 1000)
-		    resolve(true)
-		});
+	    this.interval = setInterval(() => {
+	    	console.log(this.state.counter)
+	    	this.setState({
+				counter: this.state.counter-1
+			})
 
-		this.boardPromise
-		    .then(
-		        this.setState({
+	    	if (this.state.counter === 0){
+				clearInterval(this.interval)
+				
+				this.setState({
 					memoryArr: ['Y','','Y','Y','','Y','','','','','',''],
-					board: 3,
-					counter: 2
+					board: 3
 				})
 
-			)
-			.then(
+				setTimeout(() => {
+				    this.setState({
+						board: 4
+					})
+				}, 1000)
 
-				this.oneSecondDelay = new Promise((resolve, reject) => {
-					// this.timeOut = 
-					setTimeout(resolve, 1000)
-			    }),
-				this.oneSecondDelay
-			    	.then (
-				    	this.setState({
-							board: 4,
-							counter: 3
-						})
-					)
-			)
-			.then(
-		
-			 	this.threeSecondDelay = new Promise((resolve, reject) => {
-					// this.timeOut = 
-					setTimeout(resolve, 3000)
-			    }),
-				this.threeSecondDelay
-					.then (
-						this.setState({
-							board: 5
-						})
-					)
-			)
+				setTimeout(() => {
+				    this.setState({
+						board: 5
+					})
+				}, 3000)
+
+			}}
+
+	    , 3000)
+
 	 }
-
-
-	myTimer = () => {
-		
-		console.log(this.state.counter)
-
-		this.setState({
-			counter: this.state.counter-1
-		})
-
-		if (this.state.counter === 0){
-			clearInterval(this.interval)
-		}
-	}
 
 	render() {
 
@@ -100,13 +77,14 @@ class GameBoard extends React.Component {
 
 	boardSquareClick = (value) => {
 
-		const tempSquaresArr = Object.assign(this.props.guessArr)
+		let tempSquaresArr = Object.assign(this.props.personboard)
 
 		tempSquaresArr[value] = 'Y'
 
 		this.setState({
 			guessArr: tempSquaresArr
 		})	
+
 	}
 
 	render() {
@@ -243,7 +221,7 @@ class Footer extends React.Component {
 		} else if (this.props.board === 4) {
 			return (
 				<div style={styleRow}>
-					<p>Guess the correct cells!)</p>
+					<p>Guess the correct cells!</p>
 				</div>
 			)
 		} else if (this.props.board === 5) {
