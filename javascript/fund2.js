@@ -37,7 +37,7 @@ console.log(avgVal(arr));
 
 var person = {
  name: 'Heather',
- distance_traveled: 0,
+ distance_traveled: 0
 };
 
 function say_name(obj){
